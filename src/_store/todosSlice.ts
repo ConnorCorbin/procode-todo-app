@@ -1,7 +1,11 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { Todo } from "../_types/todo";
-import { TODO_STATUS_ACTIVE, TODO_STATUS_DELETED } from "../_constants/todo";
+import {
+  TODO_STATUS_ACTIVE,
+  TODO_STATUS_COMPLETE,
+  TODO_STATUS_DELETED,
+} from "../_constants/todo";
 import { getNowUtc } from "../_utils/getNowUtc";
 
 import { RootState } from "./store";
@@ -43,9 +47,11 @@ export const todosSlice = createSlice({
     toggleTodo: (state, action: PayloadAction<{ id: string }>) => {
       for (const todo of state) {
         if (todo.id === action.payload.id) {
-          todo.status = TODO_STATUS_DELETED;
-          todo.isActive = false;
-          todo.isComplete = !todo.isComplete;
+          const isCompleted = !todo.isComplete;
+
+          todo.status = isCompleted ? TODO_STATUS_COMPLETE : TODO_STATUS_ACTIVE;
+          todo.isActive = !isCompleted;
+          todo.isComplete = isCompleted;
           todo.updatedAtUtc = getNowUtc();
 
           continue;
