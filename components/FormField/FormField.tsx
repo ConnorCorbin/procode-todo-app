@@ -1,4 +1,4 @@
-import { forwardRef, PropsWithChildren } from "react";
+import { forwardRef, type PropsWithChildren } from "react";
 
 export const FormField = forwardRef<
   HTMLDivElement,

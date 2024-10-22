@@ -1,4 +1,8 @@
-import { ComponentPropsWithRef, forwardRef, PropsWithChildren } from "react";
+import {
+  forwardRef,
+  type PropsWithChildren,
+  type ComponentPropsWithRef,
+} from "react";
 
 export const FormLabel = forwardRef<
   HTMLLabelElement,

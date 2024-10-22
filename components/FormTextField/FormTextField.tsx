@@ -1,5 +1,6 @@
 import { forwardRef, type ReactNode } from "react";
-import { FormBaseInput, FormBaseInputProps } from "../FormBaseInput";
+
+import { FormBaseInput, type FormBaseInputProps } from "../FormBaseInput";
 
 export const FormTextField = forwardRef<HTMLInputElement, FormTextFieldProps>(
   function FormTextField({ endAdornment, ...props }, ref) {

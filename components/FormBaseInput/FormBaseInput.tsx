@@ -1,4 +1,4 @@
-import { ComponentPropsWithRef, forwardRef } from "react";
+import { forwardRef, type ComponentPropsWithRef } from "react";
 
 export const FormBaseInput = forwardRef<HTMLInputElement, FormBaseInputProps>(
   function FormbaseInput(props, ref) {

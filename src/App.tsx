@@ -2,7 +2,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import { TodoForm } from "./_components/TodoForm";
 import { TodoListItem } from "./_components/TodoListItem";
-import { Paper } from "./components/Paper";
+import { Paper } from "../components/Paper";
 import { useAppSelector } from "./store/hooks";
 import { deleteTodo, selectVisibleTodos, toggleTodo } from "./store/todosSlice";
 import { useDispatch } from "react-redux";
