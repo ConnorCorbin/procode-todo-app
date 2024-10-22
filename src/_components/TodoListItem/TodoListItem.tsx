@@ -1,5 +1,7 @@
 import { useId } from "react";
 
+import cx from "classix";
+
 import { TrashIcon } from "@heroicons/react/24/outline";
 
 import { FormLabel } from "../../../components/FormLabel";
@@ -24,7 +26,9 @@ export function TodoListItem({
           onChange={() => onTodoToggle(todo.id)}
         />
       </div>
-      <FormLabel htmlFor={id}>{todo.task}</FormLabel>
+      <FormLabel htmlFor={id} className={cx(todo.isComplete && "opacity-25")}>
+        {todo.task}
+      </FormLabel>
       <div className="ml-auto flex">
         <ButtonBase
           onClick={() => onTodoDelete(todo.id)}
