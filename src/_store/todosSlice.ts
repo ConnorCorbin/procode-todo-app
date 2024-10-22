@@ -40,7 +40,7 @@ export const todosSlice = createSlice({
           todo.updatedAtUtc = nowUtc;
           todo.deletedAtUtc = nowUtc;
 
-          continue;
+          break;
         }
       }
     },
@@ -54,7 +54,7 @@ export const todosSlice = createSlice({
           todo.isComplete = isCompleted;
           todo.updatedAtUtc = getNowUtc();
 
-          continue;
+          break;
         }
       }
     },
