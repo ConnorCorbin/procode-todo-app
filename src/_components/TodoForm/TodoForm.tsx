@@ -4,16 +4,22 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FormTextField } from "../../components/FormTextField";
 import { FormErrorMessage } from "../FormErrorMessage";
 import { FormLabel } from "../../components/FormLabel";
-import { TodoFormButtonSave } from "../TodoFormButtonSave";
 import { FormField } from "../../components/FormField";
 
 import { TodoFormSchema, todoFormSchema } from "./todoFormSchema";
+import { useAppDispatch } from "../../store/hooks";
+import { addTodo } from "../../store/todosSlice";
+import { ButtonBase } from "../../components/ButtonBase";
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 export function TodoForm() {
+  const dispatch = useAppDispatch();
+
   const {
     handleSubmit,
     formState: { errors },
     register,
+    reset,
   } = useForm({
     resolver: yupResolver(todoFormSchema),
     defaultValues: {
@@ -22,7 +28,8 @@ export function TodoForm() {
   });
 
   const onSubmit: SubmitHandler<TodoFormSchema> = (data) => {
-    console.log("data", data);
+    dispatch(addTodo({ task: data.task }));
+    reset();
   };
 
   return (
@@ -31,7 +38,11 @@ export function TodoForm() {
         <FormLabel>Todo item</FormLabel>
         <FormTextField
           placeholder="Add new task"
-          endAdornment={<TodoFormButtonSave />}
+          endAdornment={
+            <ButtonBase type="submit">
+              <PlusCircleIcon height={24} width={24} />
+            </ButtonBase>
+          }
           {...register("task")}
         />
         <FormErrorMessage<TodoFormSchema> errors={errors} name="task" />
