@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
-import { FormBaseInput, FormBaseInputProps } from "../FormBaseInput";
+
+import { FormBaseInput, type FormBaseInputProps } from "../FormBaseInput";
 
 export const FormCheckbox = forwardRef<HTMLInputElement, FormCheckboxProps>(
   function FormCheckbox(props, ref) {

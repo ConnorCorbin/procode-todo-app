@@ -1,10 +1,12 @@
 import { useId } from "react";
-import { FormLabel } from "../../components/FormLabel";
-import { Todo } from "../../_types/todo";
-import { FormCheckbox } from "../../components/FormCheckbox";
-import { ButtonBase } from "../../components/ButtonBase";
 
 import { TrashIcon } from "@heroicons/react/24/outline";
+
+import { FormLabel } from "../../../components/FormLabel";
+import { FormCheckbox } from "../../../components/FormCheckbox";
+import { ButtonBase } from "../../../components/ButtonBase";
+
+import { Todo } from "../../_types/todo";
 
 export function TodoListItem({
   todo,
@@ -24,7 +26,10 @@ export function TodoListItem({
       </div>
       <FormLabel htmlFor={id}>{todo.task}</FormLabel>
       <div className="ml-auto flex">
-        <ButtonBase onClick={() => onTodoDelete(todo.id)}>
+        <ButtonBase
+          onClick={() => onTodoDelete(todo.id)}
+          aria-label="Delete todo item"
+        >
           <TrashIcon height={24} width={24} />
         </ButtonBase>
       </div>

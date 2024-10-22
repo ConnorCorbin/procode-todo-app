@@ -1,4 +1,8 @@
-import { ComponentPropsWithRef, forwardRef, PropsWithChildren } from "react";
+import {
+  forwardRef,
+  type PropsWithChildren,
+  type ComponentPropsWithRef,
+} from "react";
 
 export const ButtonBase = forwardRef<
   HTMLButtonElement,
@@ -11,4 +15,4 @@ export const ButtonBase = forwardRef<
   );
 });
 
-interface ButtonProps extends ComponentPropsWithRef<"button"> {}
+export interface ButtonProps extends ComponentPropsWithRef<"button"> {}

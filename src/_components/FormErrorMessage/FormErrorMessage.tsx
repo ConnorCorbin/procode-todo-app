@@ -1,7 +1,11 @@
-import { FieldErrors, FieldPath, FieldValues } from "react-hook-form";
-
+import {
+  type FieldErrors,
+  type FieldPath,
+  type FieldValues,
+} from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
-import { FormHelperText } from "../../components/FormHelperText";
+
+import { FormHelperText } from "../../../components/FormHelperText";
 
 export function FormErrorMessage<TFieldValues extends FieldValues>({
   errors,
