@@ -1,18 +1,19 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
 import { FormTextField } from "../../../components/FormTextField";
 import { FormErrorMessage } from "../FormErrorMessage";
 import { FormLabel } from "../../../components/FormLabel";
 import { FormField } from "../../../components/FormField";
+import { ButtonBase } from "../../../components/ButtonBase";
+
+import { useAppDispatch } from "../../_store/hooks";
+import { addTodo } from "../../_store/todosSlice";
 
 import { TodoFormSchema, todoFormSchema } from "./todoFormSchema";
-import { useAppDispatch } from "../../store/hooks";
-import { addTodo } from "../../store/todosSlice";
-import { ButtonBase } from "../../../components/ButtonBase";
-import { PlusCircleIcon } from "@heroicons/react/24/outline";
 
-export function TodoForm() {
+export function TodoForm({ defaultValues }: TodoFormProps) {
   const dispatch = useAppDispatch();
 
   const {
@@ -22,9 +23,7 @@ export function TodoForm() {
     reset,
   } = useForm({
     resolver: yupResolver(todoFormSchema),
-    defaultValues: {
-      task: "",
-    },
+    defaultValues,
   });
 
   const onSubmit: SubmitHandler<TodoFormSchema> = (data) => {
@@ -53,4 +52,8 @@ export function TodoForm() {
       </FormField>
     </form>
   );
+}
+
+interface TodoFormProps {
+  defaultValues: TodoFormSchema;
 }

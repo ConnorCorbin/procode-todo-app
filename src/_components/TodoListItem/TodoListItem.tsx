@@ -1,10 +1,12 @@
 import { useId } from "react";
+
+import { TrashIcon } from "@heroicons/react/24/outline";
+
 import { FormLabel } from "../../../components/FormLabel";
-import { Todo } from "../../_types/todo";
 import { FormCheckbox } from "../../../components/FormCheckbox";
 import { ButtonBase } from "../../../components/ButtonBase";
 
-import { TrashIcon } from "@heroicons/react/24/outline";
+import { Todo } from "../../_types/todo";
 
 export function TodoListItem({
   todo,

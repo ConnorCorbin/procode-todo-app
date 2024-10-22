@@ -2,9 +2,9 @@ import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { Todo } from "../_types/todo";
 import { TODO_STATUS_ACTIVE, TODO_STATUS_DELETED } from "../_constants/todo";
+import { getNowUtc } from "../_utils/getNowUtc";
 
 import { RootState } from "./store";
-import { getNowUtc } from "../_utils/getNowUtc";
 
 const initialState: Todo[] = [];
 
